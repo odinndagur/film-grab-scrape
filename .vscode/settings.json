@@ -1,0 +1,53 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "odinndagursql",
+            "database": "r6013",
+            "username": "odinndagur",
+            "password": "takeonme"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "r6014",
+            "database": "/Users/odinndagur/.odb/r6014.sqlite3"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "/Users/odinndagur/.odb/ferdir.sqlite3",
+            "name": "ferdir"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "signtest",
+            "database": "/Users/odinndagur/Desktop/signtest.db"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "/Users/odinndagur/Desktop/signtest.sqlite3",
+            "name": "signtest2"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "r6014-fts",
+            "database": "/Users/odinndagur/Code/r6014-fts.sqlite3"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "film-grab-db",
+            "database": "${workspaceFolder:film-grab-scrape}/film-grab-db.sqlite3"
+        }
+    ]
+}
