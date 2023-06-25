@@ -6,7 +6,8 @@ import sqlite3
 import os
 
 db_path = 'film-grab-db.sqlite3'
-os.remove(db_path)
+# os.remove(db_path)
+os.rename(db_path, f'backup-{db_path}')
 
 def init_db(db):
     stmts = [
@@ -35,7 +36,7 @@ with sqlite3.connect(db_path) as db:
 
     driver.get(base_url)
     movies = driver.find_elements_by_class_name('listing-item')
-    for movie in movies[:5]:
+    for movie in movies:
         title = movie.text
         link = movie.find_element_by_class_name('title')
 
