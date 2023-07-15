@@ -27,6 +27,9 @@ def init_db(db):
 #     init_db(db)
 
 # driver = webdriver.Safari(keep_alive=False)
+
+
+
 options = webdriver.ChromeOptions()
 options.binary_location = '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
 options.add_argument('--headless')
@@ -41,14 +44,14 @@ base_url = 'https://film-grab.com/movies-a-z/'
 with open('movies.txt','r') as f:
     movies = [line.split(' - ') for line in f.readlines()]
     print(f'{len(movies)} movies')
-    # print(movies[1289])
+    # print(movies[2247])
     # quit()
 # print(movies[1076])
 # quit()
 # movies = [get_movie(el) for el in movie_elements]
 # with open('movies.txt','w') as f:
 #     f.writelines([f'{title} - {filmgrab_url}\n' for title, filmgrab_url in movies])
-for title, filmgrab_url in movies[1290:]:
+for title, filmgrab_url in movies[2247:]:
     # title = movie.text
     # link = movie.find_element_by_class_name('title')
 
@@ -58,23 +61,28 @@ for title, filmgrab_url in movies[1290:]:
     driver.get(filmgrab_url)
     time.sleep(5)
 
+    director = ''
+    director_of_photography = ''
+    production_designer = ''
+    costume_designer = ''
+    year = ''
     p_elements = driver.find_elements_by_tag_name('p')
     for el in p_elements:
         if 'Director: ' in el.text:
             director = el.text.split('Director: ')[1]
-            # print(el.text)
+            print(el.text)
         if 'Director of Photography: ' in el.text:
             director_of_photography = el.text.split('Director of Photography: ')[1]
-            # print(el.text)
+            print(el.text)
         if 'Production Design: ' in el.text:
             production_designer = el.text.split('Production Design: ')[1]
-            # print(el.text)
+            print(el.text)
         if 'Costume Design: ' in el.text:
             costume_designer = el.text.split('Costume Design: ')[1]
-            # print(el.text)
+            print(el.text)
         if 'Year: ' in el.text:
             year = el.text.split('Year: ')[1]
-            # print(el.text)
+            print(el.text)
     time.sleep(5)
     imgs = driver.find_elements_by_class_name('bwg_lightbox')
     img_urls = [img.get_attribute('href') for img in imgs]
@@ -90,7 +98,7 @@ for title, filmgrab_url in movies[1290:]:
         {production_designer=}
         {costume_designer=}
         {year=}
-        {img_urls=}
+        {len(img_urls)=}
         ''')
     with sqlite3.connect(db_path) as db:
 
